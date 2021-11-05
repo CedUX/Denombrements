@@ -34,7 +34,7 @@ namespace Denombrements
                     }
                     catch
                     {
-                        Console.WriteLine("Erreure de saisie...");
+                        Console.WriteLine("Erreur de saisie veuillez réessayer\n... ");
                     }
                 }
                 return saisie;
@@ -94,7 +94,7 @@ namespace Denombrements
                         break;
 
                     default:
-                        Console.WriteLine("Erreur de saisie veuillez ressayer ");
+                        Console.WriteLine("Erreur de saisie veuillez réessayer\n... ");
                         break;
                 }
 
