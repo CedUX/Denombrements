@@ -1,11 +1,11 @@
 ﻿/**
- * titre : Dénombrements
- * description : L'application permet de réaliser 3 calculs mathématiques : permutation, arrangement et combinaison
- * Auteur : Cned
- * Optimisation : CedUX
- * date de création : 2020
- * date de dernière modification : 05/11/2021
- **/
+* titre : Dénombrements
+* description : L'application permet de réaliser 3 calculs mathématiques : permutation, arrangement et combinaison
+* Auteur : Cned
+* Optimisation : CedUX
+* date de création : 2020
+* date de dernière modification : 05/11/2021
+**/
 using System;
 
 namespace Denombrements
@@ -27,7 +27,7 @@ namespace Denombrements
                     try
                     {
                         // affichage utilisateur
-                        Console.Write(texte); 
+                        Console.Write(texte);
                         saisie = int.Parse(Console.ReadLine()); // saisir le nombre
                         correct = true;
 
@@ -42,6 +42,7 @@ namespace Denombrements
             //Déclaration variables
             string c = "1";
             int n, t;
+            long r, r1, r2;
             while (c != "0")
             {
                 Console.WriteLine("Permutation ...................... 1");
@@ -60,7 +61,7 @@ namespace Denombrements
                     case "1":
                         n = Saisie("nombre total d'éléments à gérer = ");
                         // calcul de r
-                        long r = 1;
+                        r = 1;
                         for (int k = 1; k <= n; k++)
                             r *= k;
                         Console.WriteLine(n + "! = " + r);
@@ -81,11 +82,11 @@ namespace Denombrements
                         t = Saisie("nombre total d'éléments à gérer = ");
                         n = Saisie("nombre d'éléments dans le sous ensemble = ");
                         // calcul de r1
-                        long r1 = 1;
+                        r1 = 1;
                         for (int k = (t - n + 1); k <= t; k++)
                             r1 *= k;
                         // calcul de r2
-                        long r2 = 1;
+                        r2 = 1;
                         for (int k = 1; k <= n; k++)
                             r2 *= k;
                         //Console.WriteLine("résultat = " + (r1 / r2));
