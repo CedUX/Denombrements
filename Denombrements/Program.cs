@@ -1,8 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/**
+ * titre : Dénombrements
+ * description : L'application permet de réaliser 3 calculs mathématiques : permutation, arrangement et combinaison
+ * Auteur : Cned
+ * Optimisation : CedUX
+ * date de création : 2020
+ * date de dernière modification : 05/11/2021
+ **/
+using System;
 
 namespace Denombrements
 {
@@ -10,8 +14,34 @@ namespace Denombrements
     {
         static void Main(string[] args)
         {
-            string c = "1";
+            ///<summary>
+            ///La fonction Saisie(texte lors de l'affichage utilisateur) permet à l'utilisateur de saisir un nombre entier et de tester une erreur de saisie avec le try and catch.
+            ///</summary>
+            int Saisie(string texte)
+            {
+                int saisie = 0;
+                bool correct = false;
+                while (!correct)
+                {
 
+                    try
+                    {
+                        // affichage utilisateur
+                        Console.Write(texte); 
+                        saisie = int.Parse(Console.ReadLine()); // saisir le nombre
+                        correct = true;
+
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Erreure de saisie...");
+                    }
+                }
+                return saisie;
+            }
+            //Déclaration variables
+            string c = "1";
+            int n, t;
             while (c != "0")
             {
                 Console.WriteLine("Permutation ...................... 1");
@@ -28,9 +58,8 @@ namespace Denombrements
                         break;
 
                     case "1":
-                        Console.Write("nombre total d'éléments à gérer = "); // le nombre d'éléments à gérer
-                        int n = int.Parse(Console.ReadLine()); // saisir le nombre
-                                                               // calcul de r
+                        n = Saisie("nombre total d'éléments à gérer = ");
+                        // calcul de r
                         long r = 1;
                         for (int k = 1; k <= n; k++)
                             r *= k;
@@ -38,11 +67,9 @@ namespace Denombrements
                         break;
 
                     case "2":
-                        Console.Write("nombre total d'éléments à gérer = "); // le nombre d'éléments à gérer
-                        int t = int.Parse(Console.ReadLine()); // saisir le nombre
-                        Console.Write("nombre d'éléments dans le sous ensemble = "); // le sous ensemble
-                        n = int.Parse(Console.ReadLine()); // saisir le nombre
-                                                           // calcul de r
+                        t = Saisie("nombre total d'éléments à gérer = ");
+                        n = Saisie("nombre d'éléments dans le sous ensemble = ");
+                        // calcul de r
                         r = 1;
                         for (int k = (t - n + 1); k <= t; k++)
                             r *= k;
@@ -51,11 +78,9 @@ namespace Denombrements
                         break;
 
                     case "3":
-                        Console.Write("nombre total d'éléments à gérer = "); // le nombre d'éléments à gérer
-                        t = int.Parse(Console.ReadLine()); // saisir le nombre
-                        Console.Write("nombre d'éléments dans le sous ensemble = "); // le sous ensemble
-                        n = int.Parse(Console.ReadLine()); // saisir le nombre
-                                                           // calcul de r1
+                        t = Saisie("nombre total d'éléments à gérer = ");
+                        n = Saisie("nombre d'éléments dans le sous ensemble = ");
+                        // calcul de r1
                         long r1 = 1;
                         for (int k = (t - n + 1); k <= t; k++)
                             r1 *= k;
@@ -63,7 +88,6 @@ namespace Denombrements
                         long r2 = 1;
                         for (int k = 1; k <= n; k++)
                             r2 *= k;
-                        // calcul de r3
                         //Console.WriteLine("résultat = " + (r1 / r2));
                         Console.WriteLine("C(" + t + "/" + n + ") = " + (r1 / r2));
                         break;
